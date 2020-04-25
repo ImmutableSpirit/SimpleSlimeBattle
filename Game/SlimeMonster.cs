@@ -30,7 +30,7 @@ namespace SimpleSlimeBattle
             {
                 splinterSlimes.Push(new SlimeMonster());
                 Console.WriteLine("It seemed to have no effect!  Wait..");
-                Console.WriteLine("The slime has splinterred!  Now there are {0} slimes!", splinterSlimes.Count + 1);
+                Console.WriteLine("The slime has splintered!  Now there are {0} slimes!", splinterSlimes.Count + 1);
             }
             else if(attack.attackType == Attack.attackTypes.Fire)
             {

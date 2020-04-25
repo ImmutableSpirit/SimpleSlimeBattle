@@ -29,7 +29,8 @@ namespace SimpleSlimeBattle
             if (attack.attackType == Attack.attackTypes.Normal)
             {
                 splinterSlimes.Push(new SlimeMonster());
-                Console.WriteLine("It seemed to have no effect!  Wait.. the slime has splinterred!  Now there are {0} slimes!", splinterSlimes.Count + 1);
+                Console.WriteLine("It seemed to have no effect!  Wait..");
+                Console.WriteLine("The slime has splinterred!  Now there are {0} slimes!", splinterSlimes.Count + 1);
             }
             else if(attack.attackType == Attack.attackTypes.Fire)
             {

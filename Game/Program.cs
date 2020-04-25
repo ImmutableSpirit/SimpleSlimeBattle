@@ -6,12 +6,13 @@ namespace SimpleSlimeBattle
     {
         public static Hero hero { get; set; }
         public static SlimeMonster slimeMonster { get; set; }
+        const string lineThick = "=============================================";
+        const string lineThin =  "-  - ----------------------------------- -  -";
 
         static void Main(string[] args)
         {
             hero = new Hero();
             slimeMonster = new SlimeMonster();
-            const string lineThick = "=============================================";
             SkipLines(2);
             Console.WriteLine(lineThick);
             SkipLines(1);
@@ -62,6 +63,8 @@ namespace SimpleSlimeBattle
             var actionText = Console.ReadLine();
             var heroAction = hero.actionParse(actionText);
             bool targetRequired = hero.TargetRequired(heroAction);
+
+            Console.WriteLine(lineThin);
             if (targetRequired)
             {
                 hero.Do(actionText, slimeMonster);
@@ -70,6 +73,7 @@ namespace SimpleSlimeBattle
             {
                 hero.Do(actionText);
             }
+            Console.WriteLine(lineThin);
         }
 
         public static void SkipLines(int x)

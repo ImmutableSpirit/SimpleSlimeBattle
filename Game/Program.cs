@@ -27,7 +27,11 @@ namespace SimpleSlimeBattle
                 //Hero's turn
                 if (hero.status == GameObject.statusType.Normal)
                 {
-                    GetAction();
+                    bool validAction = false;
+                    do
+                    {
+                        validAction = GetAction();
+                    } while (validAction == false);                    
                 }
                 //Slime's turn
                 if (slimeMonster.status == GameObject.statusType.Normal)
@@ -57,23 +61,41 @@ namespace SimpleSlimeBattle
             Console.WriteLine("~END");
         }
 
-        public static void GetAction(){
+        public static bool GetAction(){
             Console.WriteLine("What do you do?");
             Console.WriteLine("Options are: " + hero.GetActionsText());
             var actionText = Console.ReadLine();
-            var heroAction = hero.actionParse(actionText);
-            bool targetRequired = hero.TargetRequired(heroAction);
 
-            Console.WriteLine(lineThin);
-            if (targetRequired)
+            try
             {
-                hero.Do(actionText, slimeMonster);
+                var heroAction = hero.actionParse(actionText);
+                bool targetRequired = hero.TargetRequired(heroAction);
+
+                Console.WriteLine(lineThin);
+                if (targetRequired)
+                {
+                    hero.Do(actionText, slimeMonster);
+                }
+                else
+                {
+                    hero.Do(actionText);
+                }
+                Console.WriteLine(lineThin);
+                
             }
-            else
+            catch (ArgumentException)
             {
-                hero.Do(actionText);
+                Console.WriteLine("I'm sorry, what did you say?");
+                return false;
             }
-            Console.WriteLine(lineThin);
+            catch(System.Exception)
+            {
+                Console.WriteLine("Oh no.. something terrible happened.  The world is melting!");
+                //TODO: Log exception to file
+                Environment.Exit(0);
+            }
+
+            return true;
         }
 
         public static void SkipLines(int x)

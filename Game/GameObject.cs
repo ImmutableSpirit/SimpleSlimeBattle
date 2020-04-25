@@ -1,4 +1,4 @@
-namespace Demo1
+namespace SimpleSlimeBattle
 {
     public abstract class GameObject
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Demo1
+namespace SimpleSlimeBattle
 {
     public class SlimeMonster : GameObject
     {

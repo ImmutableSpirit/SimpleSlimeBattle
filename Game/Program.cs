@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Demo1
+namespace SimpleSlimeBattle
 {
     class Program
     {

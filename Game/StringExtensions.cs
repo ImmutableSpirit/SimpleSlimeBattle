@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Demo1
+namespace SimpleSlimeBattle
 {
     public static class StringExtensions
 {

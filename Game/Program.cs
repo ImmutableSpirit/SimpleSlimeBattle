@@ -43,26 +43,29 @@ namespace SimpleSlimeBattle
 
                 if (hero.status == GameObject.statusType.Dead)
                 {
-                    Console.WriteLine("You lost.  But never give up!  Life finds a way...");
-                    Console.WriteLine("Press any key + Enter to exit.");
-                    Console.ReadLine();
+                    End("You lost.  But never give up!  Life finds a way...");
                     break;
                 }
                 if (slimeMonster.status == GameObject.statusType.Dead)
                 {
-                    Console.WriteLine("You win! New adventures await!");
-                    Console.WriteLine("Press any key + Enter to exit.");
-                    Console.ReadLine();
+                    End("You win! New adventures await!");
                     break;
                 }
 
                 PrintSlimes(slimeMonster.splinterSlimes.Count + 1);
 
             } while (true);
+        }
 
+        private static void End(string message)
+        {
+            Console.WriteLine(message);
             SkipLines(2);
             Console.WriteLine(lineThick);
             Console.WriteLine("~END");
+
+            Console.WriteLine("Press any key + Enter to exit.");
+            Console.ReadLine();
         }
 
         public static bool GetAction(){

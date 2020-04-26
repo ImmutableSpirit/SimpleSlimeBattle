@@ -44,11 +44,15 @@ namespace SimpleSlimeBattle
                 if (hero.status == GameObject.statusType.Dead)
                 {
                     Console.WriteLine("You lost.  But never give up!  Life finds a way...");
+                    Console.WriteLine("Press any key + Enter to exit.");
+                    Console.ReadLine();
                     break;
                 }
                 if (slimeMonster.status == GameObject.statusType.Dead)
                 {
                     Console.WriteLine("You win! New adventures await!");
+                    Console.WriteLine("Press any key + Enter to exit.");
+                    Console.ReadLine();
                     break;
                 }
 
